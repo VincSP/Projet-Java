@@ -3,6 +3,8 @@ package model;
 import java.sql.SQLException;
 import java.util.List;
 
+import model.map.GameMap;
+
 /**
  * <h1>The Interface IModel.</h1>
  *
@@ -41,4 +43,7 @@ public interface IModel {
      *             the SQL exception
      */
     List<Example> getAllExamples() throws SQLException;
+    
+
+	public GameMap getGameMapByLevel(int level) throws SQLException;
 }
