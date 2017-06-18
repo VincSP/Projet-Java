@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.dao.ExampleDAO;
+import model.dao.GameMapDAO;
+import model.map.GameMap;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -47,4 +49,8 @@ public class ModelFacade implements IModel {
         return ExampleDAO.getAllExamples();
     }
 
+    @Override
+	public GameMap getGameMapByLevel(int level) throws SQLException {
+		return GameMapDAO.getGameMapByLevel(level);
+	}
 }
