@@ -6,7 +6,7 @@ package view;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public interface IView {
+public interface IViewSystem {
 
     /**
      * Display message.
@@ -15,4 +15,5 @@ public interface IView {
      *            the message
      */
     void displayMessage(String message);
+    void closeAll();
 }
