@@ -11,7 +11,7 @@ import model.map.GameMap;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public interface IModel {
+public interface IBoulderdashModel {
 
     /**
      * Gets the example by id.
