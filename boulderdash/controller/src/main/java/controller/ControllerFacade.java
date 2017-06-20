@@ -3,13 +3,13 @@ package controller;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Container;
+//import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
+//import java.awt.image.BufferedImage;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,14 +23,13 @@ import model.map.Position;
 import model.map.element.Cell;
 import model.map.element.Empty;
 import model.map.element.Player;
-import model.map.element.Rock;
+//import model.map.element.Rock;
 import utils.PlayerMove;
 import view.IView;
 
 /**
  * <h1>The Class ControllerFacade provides a facade of the Controller component.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
 public class ControllerFacade implements IController {
