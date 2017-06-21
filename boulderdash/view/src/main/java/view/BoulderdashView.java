@@ -1,3 +1,4 @@
+
 package view;
 
 import java.awt.event.WindowEvent;
@@ -43,5 +44,18 @@ public class BoulderdashView implements IBoulderdashView
     public final void displayMessage(final String message) {
         JOptionPane.showMessageDialog(null, message);
     }
-
+public BoulderdashView (IOrderPerformer orderPerformer, IBoulderdashModel boulderdashModel, Observable observable){
+	}
+	
+	private void run(){
+	   
+	}
+	
+	public void displayMessage(String message){
+		JOptionPane.showMessageDialog(null, message);
+	}
+	
+	public void closeAll(){
+		
+	}
 }

@@ -1,17 +1,23 @@
 package model;
 
-import java.sql.SQLException;
-import java.util.List;
 
-import model.map.GameMap;
+import java.awt.Dimension;
 
-/**
- * <h1>The Interface IModel.</h1>
- *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
 public interface IBoulderdashModel {
 
-	public GameMap getGameMapByLevel(int level) throws SQLException;
-}
+
+	public void getArea();
+	
+	public void buildArea(Dimension dimension);
+    
+	public void addMobile (IMobile Mobile);
+	
+	public void removeMobile (IMobile Mobile);
+	
+	public void getMobiles(ArrayList<IMobile>);
+	
+	public int getMobileByPlayer(int player);
+	
+	public void setMobilesHavesMoved();
+	
+

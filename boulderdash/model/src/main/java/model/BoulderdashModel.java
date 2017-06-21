@@ -1,5 +1,6 @@
 package model;
 
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -45,5 +46,43 @@ public class BoulderdashModel implements IBoulderdashModel {
     @Override
 	public GameMap getGameMapByLevel(int level) throws SQLException {
 		return GameMapDAO.getGameMapByLevel(level);
+	}public void buildArea(Dimension dimension) {
+
+	}
+
+	public void addMobile() {
+		return;
+	}
+
+	public void removeMobile(IMobile Mobile) {
+	
+	}
+
+	public ArrayList<IMobile> getMobiles(){
+		return null;
+	
+	}
+
+	public IMobile getMobileByPlayer(int player){
+		return null;
+	
+	}
+
+	public void setMobilesHavesMoved(){
+		return;
+	}
+
+	public void operation(){
+		return;
+	}
+
+	public void addMobile(IMobile Mobile){
+		return;
+	}
+
+	public Element getElementByXY(int x, int y){
+		return null;
 	}
 }
+
+
