@@ -8,7 +8,10 @@ public class Position {
 	private double maxY;
 	
 	public Position(double x, double y, double maxX, double maxY){
-		
+		this.x = x;
+		this.y = y;
+		this.maxX = maxX;
+		this.maxY = maxY;
 	}
 	
 	public Position(Position position){
@@ -16,27 +19,27 @@ public class Position {
 	}
 	
 	public double getX(){
-		return 0 ;
+		return x;
 	}
 	
 	public void setX(double x){
-		
+		this.x = x;
 	}
 	
 	public double getY(){
-		return 0 ;
+		return y;
 	}
 	
 	public void setY(double y){
-		
+		this.y = y;
 	}
 	
 	protected void setmaxX(double maxX){
-		
+		this.maxX = maxX;
 	}
 	
 	protected void setmaxY(double maxY){
-		
+		this.maxY = maxY;
 	}
 
 }
