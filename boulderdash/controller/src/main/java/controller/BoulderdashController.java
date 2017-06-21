@@ -58,35 +58,36 @@ public class BoulderdashController implements IBoulderdashController {
         this.model = model;
     }
 
-    /**
-     * Start.
-     *
-     * @throws SQLException
-     *             the SQL exception
-     */
-    public void play() throws SQLException {
+   
+    public void play() {
+    	
+    	// Initialize the game
+    	gameLoop();
     	
     }
 			
-    public void orderPerform(UserOrder userOrder){
+    //public void orderPerform(UserOrder userOrder){
   
-    }
+    //}
     
     private void gameLoop() {
-    	
+    	/*while(!notFinished)
+    	{
+    		//if touch gauche
+    		//if touch droite
+    			model.setPlayerPosition(x+1, 0);
+    			
+    		model.updateRocks();
+    		
+    		//List<Sprite> sprites = model.GetObjects()
+    		view.draw();
+    	}*/
     }
     
-    public void setViewSystem(IViewSystem viewSystem) {
-    	IViewSystem = viewSystem;
-    }
+    //public void setViewSystem(IViewSystem viewSystem) {
+    //	IViewSystem = viewSystem;
+   //}
     
-    public static int getTime_sleep() {
-		return Time_sleep;
-	}
-
-	public static void setTime_sleep(int time_sleep) {
-		Time_sleep = time_sleep;
-	}
 
 	/**
      * Gets the view.

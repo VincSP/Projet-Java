@@ -15,4 +15,16 @@ public interface IBoulderdashView {
      *            the message
      */
     void displayMessage(String message);
+    
+    /**
+     * Set internal size
+     *
+     * @param x
+     * 		width of the view
+     * @param y 
+     * 		height of the view
+     */
+    void setSize(int x, int y);
+    
+    void draw();
 }
