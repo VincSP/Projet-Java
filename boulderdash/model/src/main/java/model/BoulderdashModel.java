@@ -2,11 +2,10 @@ package model;
 
 
 import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 
-import model.dao.ExampleDAO;
+import element.Element;
 import model.dao.GameMapDAO;
-import model.map.GameMap;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -15,7 +14,7 @@ import model.map.GameMap;
  */
 public class BoulderdashModel implements IBoulderdashModel {
 
-	private GameMap mapLevel;
+	private GameMapDAO mapLevel;
 		
 	// player
 	// enemies
@@ -26,14 +25,6 @@ public class BoulderdashModel implements IBoulderdashModel {
     public BoulderdashModel() {
         super();
     }
-
-    public void setGameLevel(int level) {
-    	try {
-			mapLevel = GameMapDAO.getGameMapByLevel(level);
-		} catch (SQLException e) {
-			System.out.println("Map not found!");
-		}
-    }
     
     public void setPlayerPosition(int x, int y) {
     	// player.position = new Vector2(x,y)
@@ -43,10 +34,7 @@ public class BoulderdashModel implements IBoulderdashModel {
     	
     }
     
-    @Override
-	public GameMap getGameMapByLevel(int level) throws SQLException {
-		return GameMapDAO.getGameMapByLevel(level);
-	}public void buildArea(Dimension dimension) {
+    public void buildArea(Dimension dimension) {
 
 	}
 
@@ -82,6 +70,18 @@ public class BoulderdashModel implements IBoulderdashModel {
 
 	public Element getElementByXY(int x, int y){
 		return null;
+	}
+
+	@Override
+	public void getArea() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void buildArea(java.awt.Dimension dimension) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 

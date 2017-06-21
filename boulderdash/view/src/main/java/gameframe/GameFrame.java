@@ -1,6 +1,8 @@
 package gameframe;
 
 import java.awt.event.*;
+import java.util.Observable;
+
 import javax.swing.JFrame;
 
 public class GameFrame implements IEventPerformer, KeyListener{
@@ -22,14 +24,10 @@ public class GameFrame implements IEventPerformer, KeyListener{
 	}
 
 	@Override
-	public void eventPerfomer(gameframe.KeyEvent keyCode) {
+	public void eventPerfomer(KeyEvent keyCode) {
 		// TODO Auto-generated method stub
 		
 	}
-
-
-
-
-
+		
 }
 

@@ -1,11 +1,9 @@
-package element;
+package model;
 
 import java.awt.Image;
 import java.awt.Point;
-import model.BoulderdashModel;
-import model.Dimension;
 
-public interface IMobile {
+public interface IMobile<BoulderdashModel, Dimension, Direction> {
 
 	public Direction getDirection();
 	public void setDirection(Direction direction);

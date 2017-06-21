@@ -2,9 +2,13 @@
 package view;
 
 import java.awt.event.WindowEvent;
+import java.util.Observable;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import controller.IOrderPerformer;
+import model.IBoulderdashModel;
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
@@ -36,23 +40,17 @@ public class BoulderdashView implements IBoulderdashView
     	window.repaint();
     }
 
-    /*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
-     */
     @Override
     public final void displayMessage(final String message) {
         JOptionPane.showMessageDialog(null, message);
     }
-public BoulderdashView (IOrderPerformer orderPerformer, IBoulderdashModel boulderdashModel, Observable observable){
-	}
+    
+    public BoulderdashView (IOrderPerformer orderPerformer, IBoulderdashModel boulderdashModel, Observable observable){
+
+    }
 	
 	private void run(){
 	   
-	}
-	
-	public void displayMessage(String message){
-		JOptionPane.showMessageDialog(null, message);
 	}
 	
 	public void closeAll(){

@@ -14,10 +14,12 @@ public interface IBoulderdashModel {
 	
 	public void removeMobile (IMobile Mobile);
 	
-	public void getMobiles(ArrayList<IMobile>);
+//	public void getMobiles(ArrayList<IMobile>);
 	
-	public int getMobileByPlayer(int player);
+	public IMobile getMobileByPlayer(int player);
 	
 	public void setMobilesHavesMoved();
+	
+}
 	
 

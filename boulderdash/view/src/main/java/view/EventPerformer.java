@@ -1,12 +1,13 @@
 package view;
 
-import boulderdash.controller.IOrderPerformer;
-import boulderdash.controller.UserOrder;
+import java.awt.event.KeyEvent;
+
+import controller.IOrderPerformer;
+import controller.UserOrder;
 import gameframe.IEventPerformer;
-import gameframe.KeyEvent;
 
 
-public class EventPerformer implements IOrderPerformer, IEventPerformer{
+public class EventPerformer implements controller.IOrderPerformer, IEventPerformer{
 	
 	public EventPerformer(IOrderPerformer orderPerformer){
 		
@@ -17,11 +18,17 @@ public class EventPerformer implements IOrderPerformer, IEventPerformer{
 	}
 	
 	private UserOrder keyCodeToUser(int keyCode){
-		
+		return null;
 	}
 
 	@Override
 	public void eventPerfomer(KeyEvent keyCode) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void orderPerformer(UserOrder userOrder) {
 		// TODO Auto-generated method stub
 		
 	}

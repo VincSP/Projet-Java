@@ -7,7 +7,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
+/*
 public class ExampleTest {
     private Example example;
 
@@ -54,5 +54,6 @@ public class ExampleTest {
         final String expected = "1 : Example test";
         assertEquals(expected, this.example.toString());
     }
-
 }
+*/
+

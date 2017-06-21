@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.image.ImageObserver;
 import java.util.Observable;
 import javax.swing.JPanel;
+import javax.swing.JFrame;
 import gameframe.IGraphicsBuilder;
 
 public class GamePanel implements Observer, IGraphicsBuilder{
@@ -40,7 +41,7 @@ public class GamePanel implements Observer, IGraphicsBuilder{
 	}
 
 	@Override
-	public void applyModelToGraphics(gameframe.Graphics graphics, gameframe.ImageObserver observer) {
+	public void applyModelToGraphics(Graphics graphics, ImageObserver observer) {
 		// TODO Auto-generated method stub
 		
 	}

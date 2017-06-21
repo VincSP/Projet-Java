@@ -1,13 +1,16 @@
 package view;
 
-import java.awt.image.BufferedImage;
-import boulderdash.model.IBoulderdashModel;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.image.ImageObserver;
+
 import gameframe.IGraphicsBuilder;
+import model.IMobile;
 
 
-public class GraphicsBuilder implements IGraphicsBuilder, IBoulderdashModel {
+public class GraphicsBuilder implements IGraphicsBuilder, model.IBoulderdashModel {
 
-	public GraphicsBuilder(IBoulderdashModel dogfightModel){
+	public GraphicsBuilder(model.IBoulderdashModel dogfightModel){
 		
 	}
 	
@@ -24,10 +27,12 @@ public class GraphicsBuilder implements IGraphicsBuilder, IBoulderdashModel {
 	}
 	
 	public int getGlobalWidth(){
+		return 0;
 		
 	}
 	
 	public int getGlobalHeight(){
+		return 0;
 		
 	}
 
@@ -35,5 +40,41 @@ public class GraphicsBuilder implements IGraphicsBuilder, IBoulderdashModel {
 	public int getGlobalWidht() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public void getArea() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void buildArea(Dimension dimension) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addMobile(IMobile Mobile) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeMobile(IMobile Mobile) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public IMobile getMobileByPlayer(int player) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setMobilesHavesMoved() {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -1,16 +1,5 @@
 package model.dao;
 
-import java.sql.CallableStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import model.map.GameMap;
-import model.map.Position;
-import model.map.element.Cell;
-import model.map.element.Player;
-import model.map.element.Rock;
-import model.map.element.Wall;
-
 /**
  * <h1>The Class ExampleDAO.</h1>
  *
@@ -19,7 +8,7 @@ import model.map.element.Wall;
  */
 public abstract class GameMapDAO extends AbstractDAO {
 
-	public static GameMap getGameMapByLevel(int level) throws SQLException {
+/*	public static GameMap getGameMapByLevel(int level) throws SQLException {
 
         final CallableStatement callStatement = prepareCall("select * from map where level = (?)");
         callStatement.setInt(1, level);
@@ -43,7 +32,7 @@ public abstract class GameMapDAO extends AbstractDAO {
             return gameMap;
         }
         return null;
-        
+*/        
 		
 //		GameMap gameMap = new GameMap(10,10);
 //
@@ -58,4 +47,3 @@ public abstract class GameMapDAO extends AbstractDAO {
 //		}
 //		return gameMap;
 	}
-}
