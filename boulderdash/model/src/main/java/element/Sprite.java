@@ -1,52 +1,60 @@
 package element;
 
 import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class Sprite {
 
 private Image image;
 private String imageName;
 private char consoleImage;
-public Sprite(char character, String imageName) {
-		
+private boolean imageLoaded;
+
+	public Sprite(char character, String imageName) {
+		this.setConsoleImage(character);
+		this.setImageName(imageName);
 	}
 
 	public Image getImage(){
-		return image;
+		return this.image;
 	}
 	
-	public void loadImage(){
-		return;
+	public void loadImage() throws IOException{
+		this.getImage(ImageIO.read(new File("image/" + this.getImageName())));
 	}
 	
-	public char getConsoleImage(){
-		return consoleImage;
+	public final char getConsoleImage(){
+		return this.consoleImage;
 	}
 	
-	@SuppressWarnings("unused")
-	private void getImage(Image image){
-		
+	
+	private final Image getImage(Image image){
+		return this.image;
 	}
 	
-	@SuppressWarnings("unused")
-	private void getConsoleImage(char consoleImage){
-		
+	
+	
+	private void setConsoleImage(char consoleImage){
+		this.consoleImage = consoleImage;
 	}
 	
 	public String getImageName(){
 		return imageName;
 	}
 	
-	@SuppressWarnings("unused")
+	
 	private void setImageName(String imageName){
-		
+		this.imageName = imageName;
 	}
 	
-	public boolean isImageLoaded(){
-		return false;
+	public final boolean isImageLoaded(){
+		return this.imageLoaded;
 	}
 	
-	public void setImageLoaded(){
-		
+	public void setImageLoaded(final boolean isImageLoaded){
+		this.imageLoaded = isImageLoaded;
 	}
 }
