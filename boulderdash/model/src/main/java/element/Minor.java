@@ -1,5 +1,7 @@
 package element;
 
+import java.io.IOException;
+
 public class Minor extends Mobile {
 
 	private Sprite spriteDown = new Sprite('M', "downMinor.png");
@@ -9,15 +11,20 @@ public class Minor extends Mobile {
 	private Sprite spriteRight = new Sprite('M', "rightMinor.png");
 	private Sprite spriteDie = new Sprite('M', "dieMinor.png");
 	
-	public Minor(){
-		super(null, null, 0, null);
-	}
-	
-	public void move(){
-		
+	public Minor(int x, int y, IRoad road) throws IOException {
+		super(x, y, road);
 	}
 	
 	public void die(){
 		
 	}
+	
+	/* Aller à droite (moveRight)
+	 * Aller à gauche (moveLeft)
+	 * Aller en haut (moveUp)
+	 * Aller en bas (moveDown)
+	 * Mourir (die) (si il est écrasé par un rocher, écrasé par un diamant, touché par un monstre)
+	 * MOURIR, lorsqu'il y a une explosition, le centre de l'explosion tue tout ce qui est autour (une case autour en carré) 
+
+	 * */
 }

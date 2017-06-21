@@ -69,7 +69,7 @@ public class BoulderdashModel implements IBoulderdashModel {
 	}
 
 	public Element getElementByXY(int x, int y){
-		return null;
+		return  ;
 	}
 
 	@Override

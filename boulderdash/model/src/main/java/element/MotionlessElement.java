@@ -2,15 +2,16 @@ package element;
 
 public abstract class MotionlessElement extends Element {
 
-	public MotionlessElement(){
-		
+	/**
+	 * Instantiates a new motionless element.
+	 *
+	 * @param sprite
+	 *            the sprite
+	 * @param permeability
+	 *            the permeability
+	 */
+	MotionlessElement(final Sprite sprite, final Permeability permeability) {
+		super(sprite, permeability);
 	}
 	
-	public void Element(){
-		
-	}
-	
-	public char getSprite(){
-		return 0;
-	}
 }

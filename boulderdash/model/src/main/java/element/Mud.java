@@ -2,8 +2,11 @@ package element;
 
 public class Mud extends MotionlessElement {
 
-	public Mud(){
-		
+	Mud() {
+		super(SPRITE, Permeability.BLOCKING);
 	}
+
+	/** The Constant SPRITE. */
+	private static final Sprite SPRITE = new Sprite('U', "mud.png");
 	
 }
