@@ -4,9 +4,19 @@ import java.awt.Image;
 
 public abstract class Element {
 
-	private char sprite;
-	public Element(){
-		
+	private String sprite;
+	private Position position;
+	
+	public Element(Position position) {
+		this.position = position;
+	}
+	
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
 	}
 	
 	public char getSprite(){
@@ -14,7 +24,7 @@ public abstract class Element {
 	}
 	
 	public char setSprite(char sprite){
-		return 0;
+		return sprite;
 	}
 	
 	public Image getImage(){

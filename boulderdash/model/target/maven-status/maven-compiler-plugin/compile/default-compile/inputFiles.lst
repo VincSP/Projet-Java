@@ -1,7 +1,28 @@
-C:\Users\Juliette PORTE\git\Projet-Java\boulderdash\model\src\main\java\model\ModelFacade.java
-C:\Users\Juliette PORTE\git\Projet-Java\boulderdash\model\src\main\java\model\dao\AbstractDAO.java
-C:\Users\Juliette PORTE\git\Projet-Java\boulderdash\model\src\main\java\model\package-info.java
-C:\Users\Juliette PORTE\git\Projet-Java\boulderdash\model\src\main\java\model\dao\GameMapDAO.java
-C:\Users\Juliette PORTE\git\Projet-Java\boulderdash\model\src\main\java\model\dao\package-info.java
-C:\Users\Juliette PORTE\git\Projet-Java\boulderdash\model\src\main\java\model\dao\ExampleDAO.java
-C:\Users\Juliette PORTE\git\Projet-Java\boulderdash\model\src\main\java\model\dao\BoulderDashBDDConnector.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\model\dao\ExampleDAO.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\model\dao\GameMapDAO.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\Mud.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\Door.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\model\BoulderdashModel.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\model\Dimension.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\BehaviorSlow.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\Boulder.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\model\dao\AbstractDAO.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\Position.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\Mobile.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\Permeability.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\Minor.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\MotionlessElementsFactory.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\model\dao\package-info.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\Element.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\package-info.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\IBehaviorMove.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\BehaviorFall.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\Sprite.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\Wall.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\Monster.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\model\package-info.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\BehaviorFast.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\Direction.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\Diamond.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\element\MotionlessElement.java
+D:\workspace\Projet-Java\boulderdash\model\src\main\java\model\dao\BoulderDashBDDConnector.java

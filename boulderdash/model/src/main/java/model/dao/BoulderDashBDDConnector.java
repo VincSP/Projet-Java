@@ -18,13 +18,13 @@ final class BoulderDashBDDConnector {
     private static BoulderDashBDDConnector instance;
 
     /** The login. */
-    private static String                  user     = "bichop";
+    private static String                  user     = "tenaki";
 
     /** The password. */
-    private static String                  password = "bichop";
+    private static String                  password = "ed3rf4";
 
     /** The url. */
-    private static String                  url      = "http://217.182.91.216/bichop?useSSL=false&serverTimezone=UTC";
+    private static String                  url      = "http://217.182.91.216/projet_java2?useSSL=false&serverTimezone=UTC";
 
     /** The connection. */
     private Connection                     connection;

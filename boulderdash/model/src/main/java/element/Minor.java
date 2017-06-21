@@ -1,6 +1,8 @@
 package element;
 
-public class Minor extends Mobile {
+import javax.lang.model.element.Element;
+
+public class Minor extends Mobile implements Element {
 
 	private Sprite spriteDown = new Sprite('M', "downMinor.png");
 	private Sprite spriteUp = new Sprite('M', "upMinor.png");
@@ -9,8 +11,8 @@ public class Minor extends Mobile {
 	private Sprite spriteRight = new Sprite('M', "rightMinor.png");
 	private Sprite spriteDie = new Sprite('M', "dieMinor.png");
 	
-	public Minor(){
-		super(null, null, 0, null);
+	public Minor(Position position){
+		super(null, position, speed, null);
 	}
 	
 	public void move(){

@@ -2,8 +2,8 @@ package element;
 
 public class Diamond extends Mobile{
 
-	public Diamond(){
-		super(null, null, 0, null);
+	public Diamond(Position position){
+		super();
 	}
 	
 	private Sprite sprite = new Sprite('D', "diamond.png");
