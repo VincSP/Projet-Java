@@ -13,7 +13,7 @@ import com.mysql.cj.jdbc.CallableStatement;
 import element.Boulder;
 import element.Minor;
 import element.Wall;
-import model.GameMap;
+import model.map.GameMap;
 
 
 /**

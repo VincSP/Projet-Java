@@ -1,9 +1,11 @@
 package element;
 
+import javax.swing.text.Position;
+
 public class Wall extends MotionlessElement {
 
 	public Wall(Position position){
-		super();
+		super(null, null, speed, null);
 	}
 	
 }

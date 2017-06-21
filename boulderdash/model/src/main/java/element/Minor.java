@@ -1,6 +1,7 @@
 package element;
 
 import javax.lang.model.element.Element;
+import javax.swing.text.Position;
 
 public class Minor extends Mobile implements Element {
 
@@ -12,7 +13,7 @@ public class Minor extends Mobile implements Element {
 	private Sprite spriteDie = new Sprite('M', "dieMinor.png");
 	
 	public Minor(Position position){
-		super(null, position, speed, null);
+		super(null, null, speed, null);
 	}
 	
 	public void move(){

@@ -8,10 +8,10 @@ import model.Dimension;
 
 public class Mobile extends Element {
 
-	private int speed;
+	protected static int speed;
 	
 	public Mobile(Direction direction, Position position, int speed, String image){
-		super();
+		super(position);
 	}
 	
 	public Direction getDirection(){
