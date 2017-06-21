@@ -1,11 +1,12 @@
 package controller;
 
+import java.io.IOException;
+
 import model.IBoulderdashModel;
 import view.IBoulderdashView;
 
-
 /**
- * <h1>The Class ControllerFacade provides a facade of the Controller component.</h1>
+ * <h1>The Class BoulderdashController provides a facade of the Controller component.</h1>
  *
  * @version 1.0
  */
@@ -17,7 +18,10 @@ public class BoulderdashController implements IBoulderdashController {
     /** The model. */
     private final IBoulderdashModel model;
     
-    private static int Time_sleep = 30;
+    private static final int Time_sleep = 30;
+    
+    private Direction stackOrder;
+
     
     /**
      * Instantiates a new controller facade.
@@ -31,20 +35,56 @@ public class BoulderdashController implements IBoulderdashController {
         super();
         this.view = view;
         this.model = model;
+        this.clearStackOrder();
     }
 
    
-    public void play() {
-    	
-    	// Initialize the game
-    	gameLoop();
+    private void clearStackOrder() {
+        this.stackOrder = Direction.NOTHING;
+		
+	}
+
+
+	public void play() {
+	        while (this.getModel().getMinor().isAlive()) {
+	            Thread.sleep(Time_sleep);
+	            switch (this.getStackOrder()) {
+	                case RIGHT:
+	                    this.getModel().getMinor().moveRight();
+	                    break;
+	                case LEFT:
+	                    this.getModel().getMinor().moveLeft();
+	                    break;
+	                case UP:
+	                	this.getModel().getMinor().moveUp();
+	                
+	                case DOWN:
+	                	this.getModel().getMinor().moveDown();
+	                
+	                case NOTHING:
+	                default:
+	                    this.getModel().getMinor().doNothing();
+	                    break;
+	            }
+	            this.clearStackOrder();
+	            if (this.getModel().getMinor().isAlive()) {
+	                this.getModel().getMinor().doNothing();
+	            }
+	        }
+	        gameLoop();
     	
     }
-			
-    //public void orderPerform(UserOrder userOrder){
-  
-    //}
     
+    public final void orderPerform(final Direction userOrder) throws IOException {
+        this.setStackOrder(userOrder);
+    }
+    
+    private Direction getStackOrder() {
+    	return this.stackOrder;
+    }
+    private void setStackOrder(final Direction stackOrder) {
+    	this.stackOrder = stackOrder;
+     }
     private void gameLoop() {
     	/*while(!notFinished)
     	{
@@ -72,6 +112,10 @@ public class BoulderdashController implements IBoulderdashController {
     public IBoulderdashView getView() {
         return this.view;
     }
+    
+    private void setView(final IBoulderdashView view) {
+        this.view = view;
+    }
 
     /**
      * Gets the model.
@@ -80,5 +124,9 @@ public class BoulderdashController implements IBoulderdashController {
      */
     public IBoulderdashModel getModel() {
         return this.model;
+    }
+    
+    private void setModel(final IBoulderdashModel model) {
+        this.model = model;
     }
 }
