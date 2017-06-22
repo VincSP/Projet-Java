@@ -1,49 +1,46 @@
 package model.dao;
 
+import java.sql.CallableStatement;
+import java.sql.ResultSet;
+
 /**
- * <h1>The Class ExampleDAO.</h1>
- *
+ * <h1>The Class AbstractDAO.</h1>
+ * 
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public abstract class GameMapDAO extends AbstractDAO {
+public abstract class AbstractDAO {
 
-/*	public static GameMap getGameMapByLevel(int level) throws SQLException {
+    /**
+     * Execute query.
+     *
+     * @param query
+     *            the query
+     * @return the result set
+     */
+    protected static ResultSet executeQuery(final String query) {
+        return BoulderDashBDDConnector.getInstance().executeQuery(query);
+    }
 
-        final CallableStatement callStatement = prepareCall("select * from map where level = (?)");
-        callStatement.setInt(1, level);
-        if (callStatement.execute()) {
-            final ResultSet result = callStatement.getResultSet();
+    /**
+     * Execute update.
+     *
+     * @param query
+     *            the query
+     * @return the int
+     */
+    protected static int executeUpdate(final String query) {
+        return BoulderDashBDDConnector.getInstance().executeUpdate(query);
+    }
 
-    		GameMap gameMap = new GameMap(10,10);
-            for (boolean isResultLeft = result.first(); isResultLeft; isResultLeft = result.next()) {
-				Position position = new Position(result.getInt(2), result.getInt(3));
-				Cell cell = null;
-				if("R".equals(result.getString(4))) {
-					cell = new Rock(position);
-				} else if ("P".equals(result.getString(4))) {
-					cell = new Player(position);
-				} else if ("M".equals(result.getString(4))) {
-					cell = new Wall(position);
-				}
-				gameMap.getMap().put(position, cell);
-            }
-            result.close();
-            return gameMap;
-        }
-        return null;
-*/        
-		
-//		GameMap gameMap = new GameMap(10,10);
-//
-//		for (int i = 0; i < 10; i++) {
-//			for (int j = 0; j < 10; j++) {
-//				Position position = new Position(i, j);
-//				
-//				Rock rock = new Rock(position);
-//				
-//				gameMap.getMap().put(position, rock);
-//			}
-//		}
-//		return gameMap;
-	}
+    /**
+     * Prepare call.
+     *
+     * @param query
+     *            the query
+     * @return the callable statement
+     */
+    protected static CallableStatement prepareCall(final String query) {
+        return BoulderDashBDDConnector.getInstance().prepareCall(query);
+    }
+}
