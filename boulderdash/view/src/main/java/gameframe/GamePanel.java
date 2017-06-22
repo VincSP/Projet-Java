@@ -11,7 +11,6 @@ import gameframe.IGraphicsBuilder;
 public class GamePanel implements Observer, IGraphicsBuilder{
 	
 	public void gamePanel(final IGraphicsBuilder graphicBuilder){
-		this.graphicBuilder = graphicBuilder;
 	}
 	
 	public void update(Observable observable){
