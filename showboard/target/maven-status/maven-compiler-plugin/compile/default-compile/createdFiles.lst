@@ -1,0 +1,5 @@
+fr\exia\showboard\BoardFrame.class
+fr\exia\showboard\IBoard.class
+fr\exia\showboard\ISquare.class
+fr\exia\showboard\BoardPanel.class
+fr\exia\showboard\IPawn.class
