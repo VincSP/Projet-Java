@@ -1,5 +1,10 @@
 package view;
 
+import java.io.IOException;
+
+import controller.IBoulderdashController;
+import dto.map.GameMap;
+
 /**
  * <h1>The Interface IView.</h1>
  *
@@ -27,4 +32,10 @@ public interface IBoulderdashView {
     void setSize(int x, int y);
     
     void draw();
+    
+    public void setGameMap(GameMap gameMap) throws IOException;
+
+	void setOrderPerformer(IBoulderdashController boulderdashController);
+	
+	public void loadMap();
 }
