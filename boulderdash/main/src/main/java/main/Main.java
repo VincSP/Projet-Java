@@ -1,5 +1,6 @@
 package main;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import controller.BoulderdashController;
@@ -18,11 +19,13 @@ public abstract class Main {
      *
      * @param args
      *            the arguments
+     * @throws SQLException 
+     * @throws IOException 
      */
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws SQLException, IOException {
     	
     	BoulderdashView view = new BoulderdashView();
-    	view.setSize(800, 600);
+//    	view.setSize(800, 600);
     	
     	BoulderdashModel model = new BoulderdashModel();
    		

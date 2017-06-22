@@ -10,8 +10,7 @@ import gameframe.IGraphicsBuilder;
 
 public class GamePanel implements Observer, IGraphicsBuilder{
 	
-	public void gamePanel(IGraphicsBuilder graphicBuilder){
-		
+	public void gamePanel(final IGraphicsBuilder graphicBuilder){
 	}
 	
 	public void update(Observable observable){

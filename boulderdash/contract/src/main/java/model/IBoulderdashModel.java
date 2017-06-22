@@ -1,25 +1,22 @@
 package model;
 
 
-import java.awt.Dimension;
+import java.sql.SQLException;
+
+import map.GameMap;
 
 public interface IBoulderdashModel {
 
-
-	public void getArea();
+	public void getGameMapByLevel(int level) throws SQLException;
 	
-	public void buildArea(Dimension dimension);
-    
+	public GameMap getCurrentMap();
+
 	public void addMobile (IMobile Mobile);
 	
 	public void removeMobile (IMobile Mobile);
 	
-//	public void getMobiles(ArrayList<IMobile>);
-	
 	public IMobile getMobileByPlayer(int player);
 	
 	public void setMobilesHavesMoved();
-	
 }
 	
-

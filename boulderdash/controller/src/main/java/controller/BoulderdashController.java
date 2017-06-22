@@ -1,5 +1,21 @@
 package controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Observable;
+import java.util.Observer;
+
+import javax.swing.Timer;
+
+import dto.element.Air;
+import dto.element.Diamond;
+import dto.element.Door;
+import dto.element.Element;
+import dto.element.Miner;
+import dto.element.Permeability;
+import dto.element.Position;
 import model.IBoulderdashModel;
 import view.IBoulderdashView;
 
@@ -17,7 +33,7 @@ public class BoulderdashController implements IBoulderdashController {
     /** The model. */
     private final IBoulderdashModel model;
     
-    private static int Time_sleep = 30;
+    private Order moveOrder = Order.NOP;
     
     /**
      * Instantiates a new controller facade.
@@ -33,37 +49,119 @@ public class BoulderdashController implements IBoulderdashController {
         this.model = model;
     }
 
-   
-    public void play() {
-    	
-    	// Initialize the game
-    	gameLoop();
-    	
-    }
-			
-    //public void orderPerform(UserOrder userOrder){
-  
-    //}
+    private int currentLevel = 1;
     
-    private void gameLoop() {
-    	/*while(!notFinished)
-    	{
-    		//if touch gauche
-    		//if touch droite
-    			model.setPlayerPosition(x+1, 0);
-    			
-    		model.updateRocks();
-    		
-    		//List<Sprite> sprites = model.GetObjects()
-    		view.draw();
-    	}*/
-    }
-    
-    //public void setViewSystem(IViewSystem viewSystem) {
-    //	IViewSystem = viewSystem;
-   //}
-    
+    /**
+     * Load the first level then start the game loop.
+     * 
+     * @throws SQLException
+     * @throws IOException 
+     */
+    public void play() throws SQLException, IOException {
 
+		this.reloadLevel(currentLevel);
+//    	reloadLevel(1);
+    	// Initialize the game
+    	this.getView().setOrderPerformer(this);
+    	this.getView().draw();
+
+        Timer timer=new Timer(2, new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					gameLoop();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+        timer.start();
+    }
+
+    private void gameLoop() throws IOException {
+    	if(checkDiamondCount() || movePlayerAction()) {
+    		if(this.getModel().getCurrentMap().isFinish()) {
+    			reloadLevel(++currentLevel);
+    			this.getModel().getCurrentMap().initInView();
+    		}
+    		this.getView().loadMap();
+    	}
+		this.getModel().getCurrentMap().notifyObservers();
+    }
+
+	private boolean checkDiamondCount() throws IOException {
+		if(!this.getModel().getCurrentMap().isDoorOpen() && this.getModel().getCurrentMap().getDiamondCount() > 2) {
+			this.getModel().getCurrentMap().openDoor();
+		}
+		return false;
+	}
+
+	private void reloadLevel(int levelNumber) {
+    	try {
+			this.getModel().getGameMapByLevel(levelNumber);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	try {
+			this.getView().setGameMap(this.getModel().getCurrentMap());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
+	private boolean movePlayerAction() {
+		if(!moveOrder.equals(Order.NOP)) {
+			Element miner = this.getModel().getCurrentMap().getMiner();
+			Position nextPosition = null;
+			switch (moveOrder) {
+			case UP:
+				nextPosition = new Position(miner.getPosition().getX(), miner.getPosition().getY()-1);
+				break;
+			case DOWN:
+				nextPosition = new Position(miner.getPosition().getX(), miner.getPosition().getY()+1);
+				break;
+			case RIGHT:
+				nextPosition = new Position(miner.getPosition().getX()+1, miner.getPosition().getY());
+				break;
+			case LEFT:
+				nextPosition = new Position(miner.getPosition().getX()-1, miner.getPosition().getY());
+				break;
+			default:
+				break;
+			}
+			
+			if(this.getModel().getCurrentMap().getElementsByPosition(nextPosition).getPermeability() == Permeability.PENETRABLE) {
+				if(this.getModel().getCurrentMap().getElementsByPosition(nextPosition) instanceof Diamond) {
+					this.getModel().getCurrentMap().pickupDiamond();
+				}
+				if(this.getModel().getCurrentMap().getElementsByPosition(nextPosition) instanceof Door && this.getModel().getCurrentMap().getDiamondCount() > 2) {
+					this.getModel().getCurrentMap().setFinish(true);
+				} else if (this.getModel().getCurrentMap().getElementsByPosition(nextPosition) instanceof Door) {
+					clearStackOrder();
+					return false;
+				}
+				move(miner.getPosition(), nextPosition);
+				clearStackOrder();
+				return true;
+			}
+		}
+		return false;
+	}
+
+    private void move(Position position, Position wantedPosition) {
+    	this.getModel().getCurrentMap().changeElement(position, new Air(position));
+    	Miner currentPlayer = new Miner(wantedPosition);
+		this.getModel().getCurrentMap().changeElement(wantedPosition, currentPlayer);
+		this.getModel().getCurrentMap().setMiner(currentPlayer);
+	}
+    
+    
 	/**
      * Gets the view.
      *
@@ -80,5 +178,18 @@ public class BoulderdashController implements IBoulderdashController {
      */
     public IBoulderdashModel getModel() {
         return this.model;
+    }
+
+
+	@Override
+	public void moveMiner(Order moveOrder) {
+		this.moveOrder = moveOrder;
+	}
+
+    /**
+     * Clear stack order.
+     */
+    private void clearStackOrder() {
+        this.moveOrder = Order.NOP;
     }
 }
