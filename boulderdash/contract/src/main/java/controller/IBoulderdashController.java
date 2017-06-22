@@ -7,6 +7,7 @@ package controller;
  * @version 1.0
  */
 public interface IBoulderdashController {
-
+	
 	public void moveMiner(Order moveOrder);
+
 }

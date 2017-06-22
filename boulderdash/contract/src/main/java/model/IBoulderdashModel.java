@@ -3,7 +3,7 @@ package model;
 
 import java.sql.SQLException;
 
-import map.GameMap;
+import dto.map.GameMap;
 
 public interface IBoulderdashModel {
 
@@ -20,3 +20,4 @@ public interface IBoulderdashModel {
 	public void setMobilesHavesMoved();
 }
 	
+

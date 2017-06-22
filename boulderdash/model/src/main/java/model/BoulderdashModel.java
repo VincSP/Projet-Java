@@ -4,7 +4,9 @@ package model;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import element.Element;
+import dto.element.Element;
+import dto.element.Position;
+import dto.map.GameMap;
 import model.dao.GameMapDAO;
 
 /**
@@ -14,7 +16,7 @@ import model.dao.GameMapDAO;
  */
 public class BoulderdashModel implements IBoulderdashModel {
 
-	private GameMapDAO mapLevel;
+	private GameMap currentMap;
 		
 	// player
 	// enemies
@@ -34,10 +36,6 @@ public class BoulderdashModel implements IBoulderdashModel {
     	
     }
     
-    public void buildArea(Dimension dimension) {
-
-	}
-
 	public void addMobile() {
 		return;
 	}
@@ -68,21 +66,19 @@ public class BoulderdashModel implements IBoulderdashModel {
 		return;
 	}
 
+	public GameMap getCurrentMap() {
+		return currentMap;
+	}
+
 	public Element getElementByXY(int x, int y){
-		return  ;
+		return currentMap.getElementsByPosition(new Position(x, y));
 	}
 
 	@Override
-	public void getArea() {
-		// TODO Auto-generated method stub
-		
+	public void getGameMapByLevel(int level) throws SQLException {
+		currentMap = GameMapDAO.getGameMapByLevel(level);
 	}
 
-	@Override
-	public void buildArea(java.awt.Dimension dimension) {
-		// TODO Auto-generated method stub
-		
-	}
 }
 
 

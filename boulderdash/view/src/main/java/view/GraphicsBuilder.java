@@ -42,4 +42,3 @@ public class GraphicsBuilder implements IGraphicsBuilder {
 	}
 
 }
-
