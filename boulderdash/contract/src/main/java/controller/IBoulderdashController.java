@@ -8,4 +8,5 @@ package controller;
  */
 public interface IBoulderdashController {
 
+	public void moveMiner(Order moveOrder);
 }
