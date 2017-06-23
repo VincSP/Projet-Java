@@ -22,5 +22,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Juliette PORTE/Documents/Exia/Prosit/6. Conception et programmation objet/PROJET POO JAVA/jlayer1.0.1.zip"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
