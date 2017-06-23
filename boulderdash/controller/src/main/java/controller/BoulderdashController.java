@@ -10,10 +10,12 @@ import java.util.Observer;
 import javax.swing.Timer;
 
 import dto.element.Air;
+import dto.element.Boulder;
 import dto.element.Diamond;
 import dto.element.Door;
 import dto.element.Element;
 import dto.element.Miner;
+import dto.element.Monster;
 import dto.element.Permeability;
 import dto.element.Position;
 import model.IBoulderdashModel;
@@ -155,8 +157,14 @@ public class BoulderdashController implements IBoulderdashController {
 	}
 
     private void move(Position position, Position wantedPosition) {
+    
     	this.getModel().getCurrentMap().changeElement(position, new Air(position));
+    	
     	Miner currentPlayer = new Miner(wantedPosition);
+    	if(this.getModel().getCurrentMap().getElementsByPosition(wantedPosition) instanceof Monster){
+    		this.getModel().getCurrentMap().SetIsDead(true);
+    		System.exit(currentLevel);
+    	}
 		this.getModel().getCurrentMap().changeElement(wantedPosition, currentPlayer);
 		this.getModel().getCurrentMap().setMiner(currentPlayer);
 	}

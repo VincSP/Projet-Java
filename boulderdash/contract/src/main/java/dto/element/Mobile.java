@@ -52,10 +52,6 @@ public class Mobile extends Element {
 		
 	}
 	
-	public void doNothing(){
-		
-	}
-	
 	public int getX(){
 		return 0;
 		

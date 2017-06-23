@@ -4,13 +4,14 @@ import java.util.Random;
 
 public class Monster extends Mobile {
 	
-	private Sprite sprite = new Sprite('M', "monster.png");
+	private Sprite sprite = new Sprite('M', "monsterPenguinSimple.png");
 	
 	public Monster(Position position){
-		super(position, new Sprite('M', "monster.png"), Permeability.PENETRABLE);
+		super(position, new Sprite('M', "monsterPenguinSimple.png"), Permeability.PENETRABLE);
 	}
+	
 
-	public void choseMonster() { //choisi l'un des 3 monstres
+/*	public void choseMonster() { //choisi l'un des 3 monstres
 		Random r = new Random();
 		int n = r.nextInt(3);
 		switch (n){
@@ -25,9 +26,10 @@ public class Monster extends Mobile {
 		}	
 		
 	}
-   
-
+	*/
+	
 	public void move(){
-		return;
+	
 	}
+
 }
