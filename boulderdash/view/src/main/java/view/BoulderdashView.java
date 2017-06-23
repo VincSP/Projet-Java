@@ -7,13 +7,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.Observable;
-import java.util.Observer;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
 
 import controller.IBoulderdashController;
 import controller.IOrderPerformer;
@@ -26,23 +24,26 @@ import model.IBoulderdashModel;
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
+ * @author Juliette, Vincent, Clement and Marine
  */
 public class BoulderdashView implements IBoulderdashView, KeyListener, Runnable
 {	
-//	private JFrame window; 
-	
 	private BoardFrame boardFrame;
 	
 	private GameMap gameMap;
 	
 	private IBoulderdashController boulderdashController;
 	
+	/**
+	 * @return
+	 */
 	public GameMap getGameMap() {
 		return gameMap;
 	}
 
+	/* (non-Javadoc)
+	 * @see view.IBoulderdashView#setGameMap(dto.map.GameMap)
+	 */
 	public void setGameMap(GameMap gameMap) throws IOException {
 		this.gameMap = gameMap;
 		if (boardFrame != null) {
@@ -64,6 +65,9 @@ public class BoulderdashView implements IBoulderdashView, KeyListener, Runnable
     /** The Constant squareSize. */
     private static final int squareSize = 32;
     
+    /**
+     * @param closeView
+     */
     public void setCloseView(Rectangle closeView) {
 		this.closeView = closeView;
 	}
@@ -75,31 +79,32 @@ public class BoulderdashView implements IBoulderdashView, KeyListener, Runnable
         super();
     }
     
+    /* (non-Javadoc)
+     * @see view.IBoulderdashView#setSize(int, int)
+     */
     public void setSize(int x, int y) {
-//    	window.setSize(x,y);
     }
     
+    /* (non-Javadoc)
+     * @see view.IBoulderdashView#draw()
+     */
     public void draw() {
-
         SwingUtilities.invokeLater(this);
-        
-
-//        boardFrame.addPawn(this.getMyVehicle());
-
-//        this.getGameMap().addObserver(boardFrame.getObserver());
-//        this.followMyVehicle();
-
-    	
-//    	this.run();
-//    	window.revalidate();
-//    	window.repaint();
     }
 
+    /* (non-Javadoc)
+     * @see view.IBoulderdashView#displayMessage(java.lang.String)
+     */
     @Override
     public final void displayMessage(final String message) {
         JOptionPane.showMessageDialog(null, message);
     }
     
+    /**
+     * @param orderPerformer
+     * @param boulderdashModel
+     * @param observable
+     */
     public BoulderdashView (IOrderPerformer orderPerformer, IBoulderdashModel boulderdashModel, Observable observable){
 
     }
@@ -107,6 +112,9 @@ public class BoulderdashView implements IBoulderdashView, KeyListener, Runnable
     JLabel Count;
     JLabel Time;
     
+	/* (non-Javadoc)
+	 * @see java.lang.Runnable#run()
+	 */
 	public void run(){
     	boardFrame = new BoardFrame("Boulder Dash");
         boardFrame.setDimension(new Dimension(this.getGameMap().getxMax(), this.getGameMap().getyMax()));
@@ -144,15 +152,24 @@ public class BoulderdashView implements IBoulderdashView, KeyListener, Runnable
         boardFrame.setVisible(true);
 	}
 	
+	/* (non-Javadoc)
+	 * @see view.IBoulderdashView#setDiamondCount(int)
+	 */
 	public void setDiamondCount(int i)
 	{
 		Count.setText("Diamond Count : " + i);
 	}
 	
+	/* (non-Javadoc)
+	 * @see view.IBoulderdashView#setTimeLeft(int)
+	 */
 	public void setTimeLeft(int t)
 	{
 		Time.setText("Time Left : " + t);
 	}
+	/* (non-Javadoc)
+	 * @see view.IBoulderdashView#loadMap()
+	 */
 	public void loadMap() {
         for (int x = 0; x < this.getGameMap().getxMax(); x++) {
             for (int y = 0; y < this.getGameMap().getyMax(); y++) {
@@ -161,10 +178,16 @@ public class BoulderdashView implements IBoulderdashView, KeyListener, Runnable
         }
 	}
 
+	/**
+	 * 
+	 */
 	public void closeAll(){
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
+	 */
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		if(arg0.getKeyCode() == 37) {
@@ -181,18 +204,27 @@ public class BoulderdashView implements IBoulderdashView, KeyListener, Runnable
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
+	 */
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
+	 */
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see view.IBoulderdashView#setOrderPerformer(controller.IBoulderdashController)
+	 */
 	@Override
 	public void setOrderPerformer(IBoulderdashController boulderdashController) {
 		this.boulderdashController = boulderdashController;

@@ -17,9 +17,10 @@ import dto.element.Position;
 import dto.element.Wall;
 import dto.map.GameMap;
 
-
 /**
  * <h1>DOA for load map.</h1>
+ *
+ * @author Juliette, Vincent, Clement and Marine
  */
 public abstract class GameMapDAO extends AbstractDAO {
 
@@ -29,6 +30,11 @@ public abstract class GameMapDAO extends AbstractDAO {
 	 * @param level of the map
 	 * @return the map
 	 * @throws SQLException
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
 	 */
 	public static GameMap getGameMapByLevel(int level) throws SQLException {
 

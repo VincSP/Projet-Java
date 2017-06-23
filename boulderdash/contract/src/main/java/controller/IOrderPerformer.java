@@ -3,11 +3,13 @@ package controller;
 /**
  * <h1>The Interface IController.</h1>
  * 
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
+ * @author Juliette, Vincent, Clement and Marine
  */
 public interface IOrderPerformer {
 
+	/**
+	 * @param userOrder
+	 */
 	public void orderPerformer(UserOrder userOrder);
 	
 }

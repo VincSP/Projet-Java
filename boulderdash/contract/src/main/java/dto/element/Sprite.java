@@ -6,6 +6,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * @author Juliette, Vincent, Clement and Marine
+ *
+ */
 public class Sprite {
 
     /** The image. */

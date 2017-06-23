@@ -12,9 +12,9 @@ import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
-
+ * @author Juliette, Vincent, Clement and Marine
+ * Audio class for the song
  */
-
 public class Audio extends Thread {
 
     private String filename;

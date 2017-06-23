@@ -3,9 +3,9 @@ package view;
 /**
  * <h1>The Interface IView.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
+ * @author Juliette, Vincent, Clement and Marine
  */
+
 public interface IViewSystem {
 
     /**
@@ -14,6 +14,10 @@ public interface IViewSystem {
      * @param message
      *            the message
      */
+
     void displayMessage(String message);
+    /**
+     * 
+     */
     void closeAll();
 }

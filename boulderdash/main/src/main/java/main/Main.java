@@ -11,7 +11,8 @@ import view.BoulderdashView;
 /**
  * <h1>The Class Main.</h1>
  *
- * @version 1.0
+ * @author Juliette, Vincent, Clement and Marine
+ *
  */
 public abstract class Main {
 
@@ -21,7 +22,11 @@ public abstract class Main {
      * @param args
      *            the arguments
      * @throws SQLException 
-     * @throws IOException 
+     * @throws IOException
+     * 
+     * 
+     * 
+     * 
      */
     public static void main(final String[] args) throws SQLException, IOException {
     	
@@ -30,7 +35,6 @@ public abstract class Main {
         playWave.start();
     	
     	BoulderdashView view = new BoulderdashView();
-//    	view.setSize(800, 600);
     	
     	BoulderdashModel model = new BoulderdashModel();
    		

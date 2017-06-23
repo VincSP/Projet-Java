@@ -20,11 +20,11 @@ import dto.element.Position;
 import model.IBoulderdashModel;
 import view.IBoulderdashView;
 
-
 /**
  * <h1>The Class ControllerFacade provides a facade of the Controller component.</h1>
  *
- * @version 1.0
+ * @author Juliette, Vincent, Clement and Marine
+ * 
  */
 public class BoulderdashController implements IBoulderdashController {
 
@@ -50,9 +50,18 @@ public class BoulderdashController implements IBoulderdashController {
         this.model = model;
     }
 
+    /**
+     * 
+     */
     private int currentLevel = 1;
+    /**
+     * 
+     */
     private float timeLeft = 300;
 
+    /**
+     * 
+     */
     private float milliSecondForGameLoop = 200;
    
     /**
@@ -60,17 +69,21 @@ public class BoulderdashController implements IBoulderdashController {
      * 
      * @throws SQLException
      * @throws IOException 
+     * 
+     * 
      */
+
     public void play() throws SQLException, IOException {
 
 		this.reloadLevel(currentLevel);
-//    	reloadLevel(1);
-    	// Initialize the game
     	this.getView().setOrderPerformer(this);
     	this.getView().draw();
 
         Timer timer=new Timer((int)milliSecondForGameLoop, new ActionListener() {
 			
+			/* (non-Javadoc)
+			 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+			 */
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -84,6 +97,14 @@ public class BoulderdashController implements IBoulderdashController {
         timer.start();
     }
 
+    /**
+     * @throws IOException
+     * 
+     * 
+     * 
+     * 
+     */
+
     private void gameLoop() throws IOException {
 
     	timeLeft = timeLeft - (milliSecondForGameLoop / 1000);
@@ -95,6 +116,7 @@ public class BoulderdashController implements IBoulderdashController {
     		}
     	}
 		if(this.getModel().getCurrentMap().isDie() || timeLeft <= 0) {
+			currentLevel = 1;
 			reloadLevel(currentLevel);
 			this.getModel().getCurrentMap().initInView();
 			timeLeft = 300;
@@ -108,6 +130,9 @@ public class BoulderdashController implements IBoulderdashController {
 		applyGravity();
     }
 
+	/**
+	 * 
+	 */
 	private void moveMonster() {
 
 		for (Monster monster : this.getModel().getCurrentMap().getMonsters()) {
@@ -142,6 +167,14 @@ public class BoulderdashController implements IBoulderdashController {
 		}
 	}
 
+	/**
+	 * @return
+	 * @throws IOException
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 	private boolean checkDiamondCount() throws IOException {
 		if(!this.getModel().getCurrentMap().isDoorOpen() && this.getModel().getCurrentMap().getDiamondCount() > 2) {
 			this.getModel().getCurrentMap().openDoor();
@@ -149,6 +182,12 @@ public class BoulderdashController implements IBoulderdashController {
 		return false;
 	}
 
+	/**
+	 * @param levelNumber
+	 * 
+	 * 
+	 * 
+	 */
 	private void reloadLevel(int levelNumber) {
     	try {
 			this.getModel().getGameMapByLevel(levelNumber);
@@ -165,6 +204,9 @@ public class BoulderdashController implements IBoulderdashController {
 		}
 	}
 
+	/**
+	 * 
+	 */
 	private void applyGravity()
 	{
 		Map<Position,Element> map = this.getModel().getCurrentMap().getMap();
@@ -196,6 +238,13 @@ public class BoulderdashController implements IBoulderdashController {
 		}
 	}
 
+	/**
+	 * @param pos
+	 * @return
+	 * 
+	 * 
+	 * 
+	 */
 	public boolean IsAir(Position pos)
 	{
 		Element e = this.getModel().getCurrentMap().getElementsByPosition(pos);
@@ -205,6 +254,12 @@ public class BoulderdashController implements IBoulderdashController {
 		return e instanceof Air;
 	}
 
+	/**
+	 * @param pos
+	 * @return
+	 * 
+	 * 
+	 */
 	private boolean IsPlayer(Position pos) {
 		if (this.getModel().getCurrentMap().getMiner().getPosition().equals(pos)) {
 			return true;
@@ -212,6 +267,12 @@ public class BoulderdashController implements IBoulderdashController {
 		return false;
 	}
 	
+	/**
+	 * @param posA
+	 * @param posB
+	 * 
+	 * 
+	 */
 	public void SwapElements(Position posA, Position posB)
 	{
 		Element elementA = this.getModel().getCurrentMap().getElementsByPosition(posA);
@@ -220,6 +281,12 @@ public class BoulderdashController implements IBoulderdashController {
 		this.getModel().getCurrentMap().changeElement(posB, elementA);
 	}
 	
+	/**
+	 * @return
+	 * 
+	 * 
+	 * 
+	 */
 	private boolean movePlayerAction() {
 		if(!moveOrder.equals(Order.NOP)) {
 			Element miner = this.getModel().getCurrentMap().getMiner();
@@ -259,6 +326,14 @@ public class BoulderdashController implements IBoulderdashController {
 		return false;
 	}
 
+    /**
+     * @param position
+     * @param wantedPosition
+     * 
+     * 
+     * 
+     * 
+     */
     private void move(Position position, Position wantedPosition) {
     	this.getModel().getCurrentMap().changeElement(position, new Air(position));
     	Miner currentPlayer = new Miner(wantedPosition);
@@ -291,6 +366,9 @@ public class BoulderdashController implements IBoulderdashController {
     }
 
 
+	/* (non-Javadoc)
+	 * @see controller.IBoulderdashController#moveMiner(controller.Order)
+	 */
 	@Override
 	public void moveMiner(Order moveOrder) {
 		this.moveOrder = moveOrder;
