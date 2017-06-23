@@ -5,8 +5,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Map;
-import java.util.Observable;
-import java.util.Observer;
 
 import javax.swing.Timer;
 
@@ -54,6 +52,8 @@ public class BoulderdashController implements IBoulderdashController {
 
     private int currentLevel = 1;
     private float timeLeft = 300;
+
+    private float milliSecondForGameLoop = 200;
    
     /**
      * Load the first level then start the game loop.
@@ -69,7 +69,7 @@ public class BoulderdashController implements IBoulderdashController {
     	this.getView().setOrderPerformer(this);
     	this.getView().draw();
 
-        Timer timer=new Timer(2, new ActionListener() {
+        Timer timer=new Timer((int)milliSecondForGameLoop, new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -85,20 +85,62 @@ public class BoulderdashController implements IBoulderdashController {
     }
 
     private void gameLoop() throws IOException {
-    	
-    	timeLeft--;
+
+    	timeLeft = timeLeft - (milliSecondForGameLoop / 1000);
+
     	if(checkDiamondCount() || movePlayerAction()) {
     		if(this.getModel().getCurrentMap().isFinish()) {
     			reloadLevel(++currentLevel);
     			this.getModel().getCurrentMap().initInView();
     		}
     	}
+		if(this.getModel().getCurrentMap().isDie() || timeLeft <= 0) {
+			reloadLevel(currentLevel);
+			this.getModel().getCurrentMap().initInView();
+			timeLeft = 300;
+		}
 		this.getModel().getCurrentMap().notifyObservers();
 		this.getView().loadMap();
 		this.getView().setDiamondCount(this.getModel().getCurrentMap().getDiamondCount());
-		//this.getView().setTimeLeft(this.getModel().getCurrentMap().());
+		this.getView().setTimeLeft((int) timeLeft);
+
+		moveMonster();
 		applyGravity();
     }
+
+	private void moveMonster() {
+
+		for (Monster monster : this.getModel().getCurrentMap().getMonsters()) {
+			Position nextPosBottom = null;
+			switch (monster.getCurrentMove()) {
+			case LEFT:
+				nextPosBottom = new Position(monster.getPosition().getX()-1, monster.getPosition().getY());
+				break;
+			case RIGHT:
+				nextPosBottom = new Position(monster.getPosition().getX()+1, monster.getPosition().getY());
+				break;
+			default:
+				break;
+			}
+			if(IsAir(nextPosBottom)) {
+				SwapElements(monster.getPosition(), nextPosBottom);
+			} else if (IsPlayer(nextPosBottom)) {
+				this.getModel().getCurrentMap().setDie(true);
+			} else {
+				switch (monster.getCurrentMove()) {
+				case LEFT:
+					monster.setCurrentMove(Order.RIGHT);
+					break;
+				case RIGHT:
+					monster.setCurrentMove(Order.LEFT);
+					break;
+				default:
+					break;
+				}
+			}
+		
+		}
+	}
 
 	private boolean checkDiamondCount() throws IOException {
 		if(!this.getModel().getCurrentMap().isDoorOpen() && this.getModel().getCurrentMap().getDiamondCount() > 2) {
@@ -139,15 +181,17 @@ public class BoulderdashController implements IBoulderdashController {
 			|| e instanceof Diamond)
 			{
 				Position nextPosBottom = new Position(curPos.getX(), curPos.getY()+1);
-				//Position nextPosLeft = new Position(curPos.getX()-1, curPos.getY());
-				//Position nextPosRight = new Position(curPos.getX()+1, curPos.getY());
+				Position nextPosLeft = new Position(curPos.getX()-1, curPos.getY());
+				Position nextPosLeftBottom = new Position(curPos.getX()-1, curPos.getY()+1);
+				Position nextPosRight = new Position(curPos.getX()+1, curPos.getY());
+				Position nextPosRightBottom = new Position(curPos.getX()+1, curPos.getY()+1);
 				
 				if(IsAir(nextPosBottom))
 					SwapElements(curPos, nextPosBottom);
-				/*else if(IsAir(nextPosLeft))
-					SwapElements(curPos, nextPosLeft);
-				else if(IsAir(nextPosRight))
-					SwapElements(curPos, nextPosRight);*/
+				else if(IsAir(nextPosLeft) && IsAir(nextPosLeftBottom))
+					SwapElements(curPos, nextPosLeftBottom);
+				else if(IsAir(nextPosRight) && IsAir(nextPosRightBottom))
+					SwapElements(curPos, nextPosRightBottom);
 			}
 		}
 	}
@@ -160,11 +204,19 @@ public class BoulderdashController implements IBoulderdashController {
 		
 		return e instanceof Air;
 	}
+
+	private boolean IsPlayer(Position pos) {
+		if (this.getModel().getCurrentMap().getMiner().getPosition().equals(pos)) {
+			return true;
+		}
+		return false;
+	}
 	
 	public void SwapElements(Position posA, Position posB)
 	{
 		Element elementA = this.getModel().getCurrentMap().getElementsByPosition(posA);
 		this.getModel().getCurrentMap().changeElement(posA, new Air(posA));
+		elementA.setPosition(posB);
 		this.getModel().getCurrentMap().changeElement(posB, elementA);
 	}
 	
@@ -211,8 +263,7 @@ public class BoulderdashController implements IBoulderdashController {
     	this.getModel().getCurrentMap().changeElement(position, new Air(position));
     	Miner currentPlayer = new Miner(wantedPosition);
     	if(this.getModel().getCurrentMap().getElementsByPosition(wantedPosition) instanceof Monster){
-    		this.getModel().getCurrentMap().SetIsDead(true);
-    		System.exit(currentLevel);
+    		this.getModel().getCurrentMap().setDie(true);
     	}
     	//Boulder allBoulders = new Boulder(wantedPosition);
 		this.getModel().getCurrentMap().changeElement(wantedPosition, currentPlayer);

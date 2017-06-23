@@ -48,4 +48,10 @@ public abstract class Element implements ISquare {
     public final Image getImage() {
         return this.getSprite().getImage();
     }
+    
+    @Override
+    public String toString() {
+    	// TODO Auto-generated method stub
+    	return "[E]" + this.getClass() + "Position : " + this.getPosition();
+    }
 }

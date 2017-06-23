@@ -25,7 +25,7 @@ public abstract class Main {
      */
     public static void main(final String[] args) throws SQLException, IOException {
     	
-    	Thread playWave=new Audio("/bouldermusic.wav");
+    	Thread playWave = new Audio("C://bouldermusic.wav");
 
         playWave.start();
     	

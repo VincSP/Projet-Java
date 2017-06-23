@@ -78,6 +78,7 @@ public class BoulderdashModel implements IBoulderdashModel {
 	public void getGameMapByLevel(int level) throws SQLException {
 		currentMap = GameMapDAO.getGameMapByLevel(level);
 	}
+	
 
 }
 

@@ -1,11 +1,15 @@
 package dto.map;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 
+import controller.Order;
 import dto.element.Element;
+import dto.element.Monster;
 import dto.element.Position;
 import dto.element.Sprite;
 
@@ -132,8 +136,31 @@ public class GameMap extends Observable {
 	public boolean isDoorOpen() {
 		return doorOpened;
 	}
-	
-	public void SetIsDead(boolean die){
+
+	/**
+	 * @return the die
+	 */
+	public boolean isDie() {
+		return die;
+	}
+
+	/**
+	 * @param die the die to set
+	 */
+	public void setDie(boolean die) {
 		this.die = die;
 	}
+	
+	public List<Monster> getMonsters() {
+		List<Monster> monsters = new ArrayList<>();
+		for(Map.Entry<Position,Element> entry : this.getMap().entrySet())
+		{
+			if(entry.getValue() instanceof Monster) {
+				monsters.add((Monster)entry.getValue());
+			}
+			
+		}
+		return monsters;
+ 	}
+
 }

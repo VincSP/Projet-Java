@@ -2,7 +2,11 @@ package dto.element;
 
 import java.util.Random;
 
+import controller.Order;
+
 public class Monster extends Mobile {
+	
+	private Order currentMove = Order.LEFT;
 	
 	private Sprite sprite = new Sprite('M', "monsterPenguinSimple.png");
 	
@@ -25,9 +29,16 @@ public class Monster extends Mobile {
 		}	
 		
 	}
-   
 
 	public void move(){
 		return;
+	}
+	
+	public void setCurrentMove(Order currentMove) {
+		this.currentMove = currentMove;
+	}
+	
+	public Order getCurrentMove() {
+		return currentMove;
 	}
 }
