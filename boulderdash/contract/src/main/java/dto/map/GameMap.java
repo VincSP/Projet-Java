@@ -28,6 +28,8 @@ public class GameMap extends Observable {
 	private boolean finish;
 	
 	private int diamondCount = 0;
+	
+	private boolean die = false;
 
 	public GameMap(int x, int y) {
 		xMax = x;
@@ -129,5 +131,9 @@ public class GameMap extends Observable {
 	
 	public boolean isDoorOpen() {
 		return doorOpened;
+	}
+	
+	public void SetIsDead(boolean die){
+		this.die = die;
 	}
 }
