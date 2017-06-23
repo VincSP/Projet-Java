@@ -3,6 +3,7 @@ package main;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import controller.Audio;
 import controller.BoulderdashController;
 import model.BoulderdashModel;
 import view.BoulderdashView;
@@ -24,6 +25,9 @@ public abstract class Main {
      */
     public static void main(final String[] args) throws SQLException, IOException {
     	
+    	Thread playWave=new Audio("/bouldermusic.wav");
+        playWave.start();
+    	
     	BoulderdashView view = new BoulderdashView();
 //    	view.setSize(800, 600);
     	
@@ -32,6 +36,8 @@ public abstract class Main {
         final BoulderdashController controller = new BoulderdashController (view, model);
        
         controller.play();
+        
+        
        
     }
 
