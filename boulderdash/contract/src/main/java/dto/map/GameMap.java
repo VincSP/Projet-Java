@@ -20,6 +20,8 @@ public class GameMap extends Observable {
 	private Element miner;
 	
 	private Element door;
+	
+	private Element boulder;
 
 	private boolean doorOpened;
 	
@@ -85,6 +87,14 @@ public class GameMap extends Observable {
 	public Element getMiner() {
 		return miner;
 	}
+	
+/*	public void setBoulder(Element boulder) {
+		this.boulder = boulder;
+	}
+	
+	public Element getBoulder() {
+		return boulder;
+	}*/
 
 	public boolean isFinish() {
 		return finish;

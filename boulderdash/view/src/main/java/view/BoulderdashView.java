@@ -9,7 +9,9 @@ import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
 
@@ -102,6 +104,9 @@ public class BoulderdashView implements IBoulderdashView, KeyListener, Runnable
 
     }
 	
+    JLabel Count;
+    JLabel Time;
+    
 	public void run(){
     	boardFrame = new BoardFrame("Boulder Dash");
         boardFrame.setDimension(new Dimension(this.getGameMap().getxMax(), this.getGameMap().getyMax()));
@@ -113,17 +118,41 @@ public class BoulderdashView implements IBoulderdashView, KeyListener, Runnable
         boardFrame.addKeyListener(this);
         boardFrame.setFocusable(true);
         boardFrame.setFocusTraversalKeysEnabled(false);
-
+       
+        
+       
         loadMap();
         this.getGameMap().addObserver(boardFrame.getObserver());
         
+        
+        JPanel HUDPanel = new JPanel();
+        Count = new JLabel();
+        Count.setText("Diamond Count = 0");
+        
+        HUDPanel.add(Count);
+        boardFrame.add(HUDPanel);
+       
         boardFrame.setVisible(true);
-//        
-//        window = new JFrame("Boulder Dash");
-//        window.setVisible(true);
-        //window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));
+        
+        JPanel HUDPanel2 = new JPanel();
+        Time = new JLabel();
+        Time.setText("Time Left = 300");
+        
+        HUDPanel2.add(Time);
+        boardFrame.add(HUDPanel2);
+       
+        boardFrame.setVisible(true);
 	}
 	
+	public void setDiamondCount(int i)
+	{
+		Count.setText("Diamond Count : " + i);
+	}
+	
+	public void setTimeLeft(int t)
+	{
+		Time.setText("Time Left : " + t);
+	}
 	public void loadMap() {
         for (int x = 0; x < this.getGameMap().getxMax(); x++) {
             for (int y = 0; y < this.getGameMap().getyMax(); y++) {

@@ -37,5 +37,9 @@ public interface IBoulderdashView {
 
 	void setOrderPerformer(IBoulderdashController boulderdashController);
 	
+	void setDiamondCount(int i);
+	
+	void setTimeLeft(int t);
+	
 	public void loadMap();
 }
