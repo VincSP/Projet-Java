@@ -29,7 +29,7 @@ public class GamePanel implements Observer, IGraphicsBuilder{
 	/**
 	 * @param graphic
 	 */
-	public void paintComposant(Graphics graphic){
+	public void paintComponent(Graphics graphic){
 		
 	}
 

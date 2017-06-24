@@ -7,8 +7,14 @@ package controller;
  */
 public interface IUserOrder {
 	
+	/**
+	 * get the order
+	 */
 	public void getOrder();
 	
+	/**
+	 *  get the player
+	 */
 	public void getPlayer();
 	
 }

@@ -9,6 +9,7 @@ public class Mobile extends Element {
 	protected static int speed;
 	
 	/**
+	 * return parameters of the mobile
 	 * @param position
 	 * @param sprite
 	 * @param permeability
@@ -16,36 +17,10 @@ public class Mobile extends Element {
 	public Mobile(Position position, Sprite sprite, final Permeability permeability){
 		super(position, sprite, permeability);
 	}
-	
-	/**
-	 * @return
-	 */
-	public Direction getDirection(){
-		return null;
-	}
-	
-	/**
-	 * @param direction
-	 */
-	public void setDirection(Direction direction){
-	}
-	
-	/**
-	 * @return
-	 */
-	public int getSpeed(){
-		return 0;
-	}
-	
-	/**
-	 * 
-	 */
-	public void move(){
-	}
-	
+			
 	/**
 	 * @param player
-	 * @return
+	 * @return false
 	 */
 	public boolean isPlayer(int player){
 		return false;
@@ -53,41 +28,34 @@ public class Mobile extends Element {
 	
 	
 	/**
-	 * @return
+	 * @return false
 	 */
 	public boolean hit(){
 		return false;
 	}
 	
-	/**
-	 * 
-	 */
 	public void die(){
 	}
 	
-	/**
-	 * 
-	 */
 	public void doNothing(){
 	}
 	
 	/**
-	 * @return
+	 * get the x
+	 * @return 0
 	 */
 	public int getX(){
 		return 0;
 	}
 	
 	/**
-	 * @return
+	 * get the y
+	 * @return 0
 	 */
 	public int getY(){
 		return 0;
 	}
 	
-	/**
-	 * 
-	 */
 	public void decideMove(){
 	}
 }

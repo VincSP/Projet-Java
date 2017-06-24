@@ -18,21 +18,20 @@ public class Position {
 		this.y = y;
 	}
 	
-	/**
-	 * @param position
-	 */
+	/** @param position */
 	public Position(Position position){
-		
 	}
 	
 	/**
-	 * @return
+	 * get the x
+	 * @return the x
 	 */
 	public double getX(){
 		return x;
 	}
 	
 	/**
+	 * set the x
 	 * @param x
 	 */
 	public void setX(double x){
@@ -40,13 +39,15 @@ public class Position {
 	}
 	
 	/**
-	 * @return
+	 * get the y
+	 * @return the y
 	 */
 	public double getY(){
 		return y;
 	}
 	
 	/**
+	 * set the y
 	 * @param y
 	 */
 	public void setY(double y){

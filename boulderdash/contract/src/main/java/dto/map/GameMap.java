@@ -58,14 +58,16 @@ public class GameMap extends Observable {
 	}
 	
 	/**
+	 * get the elements by position
 	 * @param position
-	 * @return
+	 * @return the position
 	 */
 	public Element getElementsByPosition(Position position) {
 		return map.get(position);
 	}
 	
 	/**
+	 * change the element
 	 * @param position
 	 * @param element
 	 */
@@ -88,6 +90,7 @@ public class GameMap extends Observable {
 	}
 	
 	/**
+	 * set the map
 	 * @param map
 	 */
 	public void setMap(Map<Position, Element> map) {
@@ -95,13 +98,15 @@ public class GameMap extends Observable {
 	}
 
 	/**
-	 * @return
+	 * get the x max
+	 * @return the x max
 	 */
 	public int getxMax() {
 		return xMax;
 	}
 
 	/**
+	 * set the x max
 	 * @param xMax
 	 */
 	public void setxMax(int xMax) {
@@ -109,13 +114,15 @@ public class GameMap extends Observable {
 	}
 
 	/**
-	 * @return
+	 * get the y max
+	 * @return the y max
 	 */
 	public int getyMax() {
 		return yMax;
 	}
 
 	/**
+	 * set the y max
 	 * @param yMax
 	 */
 	public void setyMax(int yMax) {
@@ -123,6 +130,7 @@ public class GameMap extends Observable {
 	}
 
 	/**
+	 * set the miner
 	 * @param miner
 	 */
 	public void setMiner(Element miner) {
@@ -130,48 +138,50 @@ public class GameMap extends Observable {
 	}
 	
 	/**
-	 * @return
+	 * get the miner
+	 * @return the miner
 	 */
 	public Element getMiner() {
 		return miner;
 	}
 	
 	/**
-	 * @return
+	 * @return finish
 	 */
 	public boolean isFinish() {
 		return finish;
 	}
 
 	/**
+	 * set finish
 	 * @param finish
 	 */
 	public void setFinish(boolean finish) {
 		this.finish = finish;
 	}
 
-	/**
-	 * 
-	 */
+
 	public void initInView() {
 		this.setChanged();
 	}
 
 	/**
-	 * 
+	 * count of diamonds picked up
 	 */
 	public void pickupDiamond() {
 		this.diamondCount++;
 	}
 
 	/**
-	 * @return
+	 * get the count of diamonds
+	 * @return number of diamonds
 	 */
 	public int getDiamondCount() {
 		return diamondCount;
 	}
 	
 	/**
+	 * set the door
 	 * @param door
 	 */
 	public void setDoor(Element door) {
@@ -180,6 +190,11 @@ public class GameMap extends Observable {
 
 	/**
 	 * @throws IOException
+	 * for open the door
+	 * door is open
+	 * set the sprite of the door
+	 * get the sprite and load image
+	 * indicated changement
 	 */
 	public void openDoor() throws IOException {
 		this.doorOpened = true;
@@ -189,7 +204,8 @@ public class GameMap extends Observable {
 	}
 	
 	/**
-	 * @return
+	 * door open
+	 * @return door opened
 	 */
 	public boolean isDoorOpen() {
 		return doorOpened;
@@ -203,14 +219,16 @@ public class GameMap extends Observable {
 	}
 
 	/**
-	 * @param die the die to set
+	 * set the die
+	 * @param die
 	 */
 	public void setDie(boolean die) {
 		this.die = die;
 	}
 	
 	/**
-	 * @return
+	 * add monster in list if instanceof monster
+	 * @return monsters
 	 */
 	public List<Monster> getMonsters() {
 		List<Monster> monsters = new ArrayList<>();
@@ -219,9 +237,7 @@ public class GameMap extends Observable {
 			if(entry.getValue() instanceof Monster) {
 				monsters.add((Monster)entry.getValue());
 			}
-			
 		}
 		return monsters;
  	}
-
 }

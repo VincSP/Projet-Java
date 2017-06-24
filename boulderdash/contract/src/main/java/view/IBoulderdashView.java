@@ -35,9 +35,6 @@ public interface IBoulderdashView {
      */
     void setSize(int x, int y);
     
-    /**
-     * 
-     */
     void draw();
     
     /**
@@ -61,8 +58,5 @@ public interface IBoulderdashView {
 	 */
 	void setTimeLeft(int t);
 	
-	/**
-	 * 
-	 */
 	public void loadMap();
 }

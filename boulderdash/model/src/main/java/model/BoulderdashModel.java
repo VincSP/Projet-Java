@@ -26,16 +26,16 @@ public class BoulderdashModel implements IBoulderdashModel {
     }
     
     /**
+     * set the position of the player
      * @param x
      * @param y
      */
     public void setPlayerPosition(int x, int y) {
-    	// player.position = new Vector2(x,y)
     }
     
     
 	/**
-	 * 
+	 * add the mobile
 	 */
 	public void addMobile() {
 		return;
@@ -50,7 +50,7 @@ public class BoulderdashModel implements IBoulderdashModel {
 	}
 
 	/**
-	 * @return
+	 * @return null
 	 */
 	@SuppressWarnings("rawtypes")
 	public ArrayList<IMobile> getMobiles(){
@@ -73,13 +73,6 @@ public class BoulderdashModel implements IBoulderdashModel {
 		return;
 	}
 
-	/**
-	 * 
-	 */
-	public void operation(){
-		return;
-	}
-
 	/* (non-Javadoc)
 	 * @see model.IBoulderdashModel#addMobile(model.IMobile)
 	 */
@@ -96,9 +89,10 @@ public class BoulderdashModel implements IBoulderdashModel {
 	}
 
 	/**
+	 * get the element by x and y
 	 * @param x
 	 * @param y
-	 * @return
+	 * @return new positions
 	 */
 	public Element getElementByXY(int x, int y){
 		return currentMap.getElementsByPosition(new Position(x, y));

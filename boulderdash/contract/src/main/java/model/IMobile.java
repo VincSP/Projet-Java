@@ -12,57 +12,27 @@ import java.awt.Point;
  */
 public interface IMobile<BoulderdashModel, Dimension, Direction> {
 
-	/**
-	 * @return
-	 */
+	/** 	get the direction	 */
+
 	public Direction getDirection();
 	/**
+	 * set the direction
 	 * @param direction
 	 */
 	public void setDirection(Direction direction);
-	/**
-	 * @return
-	 */
+	/** 	get the position	 */
 	public Point getPosition();
-	/**
-	 * @return
-	 */
-	public Dimension getDimension();
-	/**
-	 * @return
-	 */
-	public int getWidth();
-	/**
-	 * @return
-	 */
-	public int getHeight();
-	/**
-	 * @return
-	 */
-	public int getSpeed();
-	/**
-	 * @return
-	 */
+
+	/**	 get the image	 */
 	public Image getImage();
-	/**
-	 * 
-	 */
+
 	public void move();
-	/**
-	 * @param player
-	 * @return
-	 */
+
 	public boolean isPlayer(int player);
-	/**
-	 * 
-	 */
+
 	public void die();
-	/**
-	 * @return
-	 */
+
 	public boolean hit();
-	/**
-	 * @param boulderdashModel
-	 */
+
 	public void setBoulderdashModel(BoulderdashModel boulderdashModel);
 }

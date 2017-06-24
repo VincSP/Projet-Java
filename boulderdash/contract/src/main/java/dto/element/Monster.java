@@ -11,6 +11,7 @@ public class Monster extends Mobile {
 	private Order currentMove = Order.LEFT;
 	
 	/**
+	 * return parameter of position
 	 * @param position
 	 */
 	public Monster(Position position){
@@ -24,15 +25,15 @@ public class Monster extends Mobile {
 		return;
 	}
 	
-	/**
+	/** set the current move
 	 * @param currentMove
 	 */
 	public void setCurrentMove(Order currentMove) {
 		this.currentMove = currentMove;
 	}
 	
-	/**
-	 * @return
+	/**	get the current move
+	 * @return the current move
 	 */
 	public Order getCurrentMove() {
 		return currentMove;

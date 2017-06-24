@@ -15,6 +15,7 @@ public abstract class Element implements ISquare {
 	private Permeability permeability;
 	
 	/**
+	 * return parameters of the element
 	 * @param position
 	 * @param sprite
 	 * @param permeability
@@ -26,13 +27,15 @@ public abstract class Element implements ISquare {
 	}
 	
 	/**
-	 * @return
+	 * get the position
+	 * @return position
 	 */
 	public Position getPosition() {
 		return position;
 	}
 
 	/**
+	 * set the position
 	 * @param position
 	 */
 	public void setPosition(Position position) {
@@ -40,6 +43,7 @@ public abstract class Element implements ISquare {
 	}
 
 	/**
+	 * set the sprite
 	 * @param sprite
 	 */
 	public void setSprite(Sprite sprite) {
@@ -47,13 +51,15 @@ public abstract class Element implements ISquare {
 	}
 	
 	/**
-	 * @return
+	 * get the sprite
+	 * @return the sprite
 	 */
 	public Sprite getSprite() {
 		return sprite;
 	}
 
 	/**
+	 * set the permeability
 	 * @param permeability
 	 */
 	public void setPermeability(Permeability permeability) {
@@ -61,7 +67,8 @@ public abstract class Element implements ISquare {
 	}
 	
 	/**
-	 * @return
+	 * get the permeability
+	 * @return the permeability
 	 */
 	public Permeability getPermeability() {
 		return permeability;

@@ -16,8 +16,5 @@ public interface IViewSystem {
      */
 
     void displayMessage(String message);
-    /**
-     * 
-     */
     void closeAll();
 }

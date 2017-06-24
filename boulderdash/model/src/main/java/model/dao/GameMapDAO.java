@@ -31,10 +31,8 @@ public abstract class GameMapDAO extends AbstractDAO {
 	 * @return the map
 	 * @throws SQLException
 	 * 
-	 * 
-	 * 
-	 * 
-	 * 
+	 * Performs a query in the database in order to retrieve the cards 
+	 * and display the different elements in the right place in the game
 	 */
 	public static GameMap getGameMapByLevel(int level) throws SQLException {
 

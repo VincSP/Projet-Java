@@ -35,7 +35,8 @@ public class BoulderdashView implements IBoulderdashView, KeyListener, Runnable
 	private IBoulderdashController boulderdashController;
 	
 	/**
-	 * @return
+	 * get the game map
+	 * @return the game map
 	 */
 	public GameMap getGameMap() {
 		return gameMap;

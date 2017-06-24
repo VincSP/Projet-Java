@@ -10,6 +10,7 @@ package controller;
 public interface IBoulderdashController {
 	
 	/**
+	 * 		for move the miner
 	 * @param moveOrder
 	 */
 	public void moveMiner(Order moveOrder);

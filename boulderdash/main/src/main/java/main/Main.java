@@ -24,13 +24,10 @@ public abstract class Main {
      * @throws SQLException 
      * @throws IOException
      * 
-     * 
-     * 
-     * 
      */
     public static void main(final String[] args) throws SQLException, IOException {
     	
-    	Thread playWave = new Audio("C://bouldermusic.wav");
+    	Thread playWave = new Audio("music/bouldermusic.wav");
 
         playWave.start();
     	

@@ -7,6 +7,7 @@ package dto.element;
 public abstract class MotionlessElement extends Element {
 
 	/**
+	 * return parameters
 	 * @param position
 	 * @param sprite
 	 * @param permeability

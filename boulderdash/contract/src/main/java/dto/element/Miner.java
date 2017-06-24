@@ -7,6 +7,7 @@ package dto.element;
 public class Miner extends Mobile {
 
 	/**
+	 * return parameter position
 	 * @param position
 	 */
 	public Miner(Position position){

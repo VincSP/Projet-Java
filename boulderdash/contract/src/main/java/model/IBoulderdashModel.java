@@ -12,22 +12,23 @@ import dto.map.GameMap;
 public interface IBoulderdashModel {
 
 	/**
+	 * get the game map by level
 	 * @param level
 	 * @throws SQLException
 	 */
 	public void getGameMapByLevel(int level) throws SQLException;
 	
-	/**
-	 * @return
-	 */
+	/** get the current map	 */
 	public GameMap getCurrentMap();
 
 	/**
+	 * add the mobile
 	 * @param Mobile
 	 */
 	public void addMobile (IMobile<?, ?, ?> Mobile);
 	
 	/**
+	 * remove the mobile
 	 * @param Mobile
 	 */
 	public void removeMobile (IMobile<?, ?, ?> Mobile);
@@ -39,7 +40,7 @@ public interface IBoulderdashModel {
 	public IMobile<?, ?, ?> getMobileByPlayer(int player);
 	
 	/**
-	 * 
+	 * set mobiles havec moved
 	 */
 	public void setMobilesHavesMoved();
 }
